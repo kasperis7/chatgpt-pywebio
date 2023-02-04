@@ -3,13 +3,15 @@ from pywebio import start_server
 from pywebio.output import *
 from pywebio.pin import *
 from pywebio.session import set_env
+import os
 
-api_key = "<your openai_api_key here>"
+api_key = "your_api_key_here"
 
 def main():
 
     chatbot = Chatbot(api_key)
 
+    @use_scope("out")
     def chatbot_reset():
         chatbot.reset()
         clear()
